@@ -9,18 +9,24 @@
 <h:body>
 	<center>
 		<h:form>
-			<h1>Modifier les détails du contact</h1>
-			  Nom de contact : <h:inputText value="#{edituser.user.name}"></h:inputText>
+			<h1>Modifier les détails du'un contact</h1>
+			  Nom de contact : <h:inputText value="#{editContact.contact.name}"></h:inputText>
 			<br />
 			<br />
-				Adresse de contact : <h:inputText value="#{edituser.user.email}"></h:inputText>
+				Adresse de contact : <h:inputText value="#{editContact.contact.adresse}"></h:inputText>
 			<br />
 			<br />
                 Email de contact : <h:inputText
-				value="#{edituser.user.country}"></h:inputText>
+				value="#{editContact.contact.email}"></h:inputText>
 			<br />
 			<br />
-			<h:commandButton value="Modifier" action="#{edituser.update}">
+                Telephone de contact : <h:inputText
+				value="#{editContact.contact.tel}"></h:inputText>
+			<br />
+			<br />
+			<br />
+			<h:commandButton value="Modifier"
+				action="#{editContact.update}">
 			</h:commandButton>
 		</h:form>
 	</center>

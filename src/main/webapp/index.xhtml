@@ -1,8 +1,8 @@
+<?xml version='1.0' encoding='UTF-8' ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:f="http://java.sun.com/jsf/core"
-	xmlns:h="http://java.sun.com/jsf/html">
+	xmlns:h="http://xmlns.jcp.org/jsf/html">
 <h:head>
 	<title>Facelet Gestion des contacts</title>
 </h:head>
@@ -11,44 +11,51 @@
 		<h2>Gestion des Contacts</h2>
 		<h:form>
                 Nom de contact : <h:inputText
-				value="#{ManagersUsers.user.name}"></h:inputText>
+				value="#{ManagersContacts.contact.name}"></h:inputText>
 				Adresse de contact : <h:inputText
-				value="#{ManagersUsers.user.email}"></h:inputText>
+				value="#{ManagersContacts.contact.adresse}"></h:inputText>
                 Email de contact : <h:inputText
-				value="#{ManagersUsers.user.country}"></h:inputText>
-			<h:commandButton value="Ajouter" action="#{ManagersUsers.add()}"></h:commandButton>
+				value="#{ManagersContacts.contact.email}"></h:inputText>
+                Telephone de contact : <h:inputText
+				value="#{ManagersContacts.contact.tel}"></h:inputText>
+			<h:commandButton value="Ajouter"
+				action="#{ManagersContacts.add()}"></h:commandButton>
 		</h:form>
 		<br /> <br />
 		<h:form>
-			<h:dataTable value="#{ManagersUsers.getAll()}" var="user">
+			<h:dataTable value="#{ManagersContacts.all}" var="contact">
 				<h:column>
 					<f:facet name="header">ID</f:facet>
-					<h:outputText value="#{user.id}"></h:outputText>
+					<h:outputText value="#{contact.id_contact}"></h:outputText>
 				</h:column>
 				<h:column>
 					<f:facet name="header">Nom</f:facet>
-					<h:outputText value="#{user.name}"></h:outputText>
+					<h:outputText value="#{contact.name}"></h:outputText>
 				</h:column>
 				<h:column>
 					<f:facet name="header">Adresse</f:facet>
-					<h:outputText value="#{user.email}"></h:outputText>
+					<h:outputText value="#{contact.adresse}"></h:outputText>
 				</h:column>
 				<h:column>
 					<f:facet name="header">Email</f:facet>
-					<h:outputText value="#{user.country}"></h:outputText>
+					<h:outputText value="#{contact.email}"></h:outputText>
+				</h:column>
+				<h:column>
+					<f:facet name="header">Telephone</f:facet>
+					<h:outputText value="#{contact.tel}"></h:outputText>
 				</h:column>
 				<h:column>
 					<f:facet name="header"></f:facet>
 					<h:commandButton value="Modifier"
-						action="#{ManagersUsers.getById}">
-						<f:param name="action" value="#{user.id}" />
+						action="#{ManagersContacts.getById()}">
+						<f:param name="action" value="#{contact.id_contact}" />
 					</h:commandButton>
 				</h:column>
 				<h:column>
 					<f:facet name="header"></f:facet>
 					<h:commandButton value="Supprimer"
-						action="#{ManagersUsers.delete()}">
-						<f:param name="action" value="#{user.id}" />
+						action="#{ManagersContacts.delete()}">
+						<f:param name="action" value="#{contact.id_contact}" />
 					</h:commandButton>
 				</h:column>
 			</h:dataTable>

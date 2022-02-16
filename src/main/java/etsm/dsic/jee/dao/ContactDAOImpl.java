@@ -1,21 +1,21 @@
 package etsm.dsic.jee.dao;
 
-import etsm.dsic.jee.model.User;
+import etsm.dsic.jee.model.Contact;
 import etsm.dsic.jee.util.HibernateUtil;
 import java.util.List;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
-public class UserDAOImpl implements UserDAO {
+public class ContactDAOImpl implements ContactDAO {
 
 	@Override
-	public void saveUser(User user) throws Exception {
+	public void saveContact(Contact Contact) throws Exception {
 		Transaction transaction = null;
 		try (Session session = HibernateUtil.getSessionFactory().openSession()) {
 			// start a transaction
 			transaction = session.beginTransaction();
 			// save the student object
-			session.save(user);
+			session.save(Contact);
 			// commit transaction
 			transaction.commit();
 		} catch (Exception e) {
@@ -28,16 +28,16 @@ public class UserDAOImpl implements UserDAO {
 
 	@Override
 	@SuppressWarnings("unchecked")
-	public List<User> findAll() {
+	public List<Contact> findAll() {
 		// TODO Auto-generated method stub
 		Transaction transaction = null;
-		List<User> listOfUser = null;
+		List<Contact> listOfContact = null;
 		try (Session session = HibernateUtil.getSessionFactory().openSession()) {
 			// start a transaction
 			transaction = session.beginTransaction();
-			// get an user object
+			// get an Contact object
 
-			listOfUser = session.createQuery("from User").getResultList();
+			listOfContact = session.createQuery("from Contact").getResultList();
 
 			// commit transaction
 			transaction.commit();
@@ -47,19 +47,19 @@ public class UserDAOImpl implements UserDAO {
 			}
 			e.printStackTrace();
 		}
-		return listOfUser;
+		return listOfContact;
 	}
 
 	@Override
-	public User getUserById(Integer idUser) {
+	public Contact getContactById(Integer idContact) {
 		// TODO Auto-generated method stub
 		Transaction transaction = null;
-		User user = null;
+		Contact Contact = null;
 		try (Session session = HibernateUtil.getSessionFactory().openSession()) {
 			// start a transaction
 			transaction = session.beginTransaction();
-			// get an user object
-			user = session.get(User.class, idUser);
+			// get an Contact object
+			Contact = session.get(Contact.class, idContact);
 			// commit transaction
 			transaction.commit();
 		} catch (Exception e) {
@@ -68,18 +68,18 @@ public class UserDAOImpl implements UserDAO {
 			}
 			e.printStackTrace();
 		}
-		return user;
+		return Contact;
 	}
 
 	@Override
-	public void updateUser(User user) {
+	public void updateContact(Contact Contact) {
 		// TODO Auto-generated method stub
 		Transaction transaction = null;
 		try (Session session = HibernateUtil.getSessionFactory().openSession()) {
 			// start a transaction
 			transaction = session.beginTransaction();
 			// save the student object
-			session.update(user);
+			session.update(Contact);
 			// commit transaction
 			transaction.commit();
 		} catch (Exception e) {
@@ -91,19 +91,19 @@ public class UserDAOImpl implements UserDAO {
 	}
 
 	@Override
-	public void deleteUser(Integer id) {
+	public void deleteContact(Integer id) {
 		// TODO Auto-generated method stub
 		Transaction transaction = null;
 		try (Session session = HibernateUtil.getSessionFactory().openSession()) {
 			// start a transaction
 			transaction = session.beginTransaction();
 
-			// Delete a user object
-			User user = session.get(User.class, id);
-			System.out.println(user);
-			if (user != null) {
-				session.delete(user);
-				System.out.println("user is deleted");
+			// Delete a Contact object
+			Contact Contact = session.get(Contact.class, id);
+			System.out.println(Contact);
+			if (Contact != null) {
+				session.delete(Contact);
+				System.out.println("Contact is deleted");
 			}
 
 			// commit transaction
