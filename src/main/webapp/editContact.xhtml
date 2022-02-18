@@ -66,9 +66,10 @@
 				<div class="col-sm-6">
 					<div class="col-sm-6">
 						<h:commandButton value="Modifier"
-							action="#{editContact.update}"
+							action="#{editContact.update(userInfo.id_user)}"
 							class="btn btn-success btnWidth">
-							<f:param name="id_Update" value="#{editContact.contact.id_contact}" />
+							<f:param name="id_Update"
+								value="#{editContact.contact.id_contact}" />
 						</h:commandButton>
 					</div>
 				</div>

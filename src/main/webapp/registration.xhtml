@@ -1,0 +1,45 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+<h:head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"></meta>
+	<title>Page d'inscription</title>
+	<link href="https://fonts.googleapis.com/css?family=ZCOOL+XiaoWei"
+		rel="stylesheet"></link>
+	<h:outputStylesheet library="css" name="style.css" />
+
+</h:head>
+
+<h:body>
+	<div class="container">
+		<div class="regbox box">
+			<img class="avatar" src="./resources/img/user.png"></img>
+			<h1>Créer un compte</h1>
+			<h:form id="form-login">
+				<h:panelGrid columns="2">
+					<h:outputText value="Nom d'utilisateur" />
+					<br></br>
+					<h:inputText value="#{ManagersUsers.user.name}" />
+					<br></br>
+					<h:outputText value="Courriel de l'utilisateur" />
+					<br></br>
+					<h:inputText value="#{ManagersUsers.user.email}" />
+					<br></br>
+					<h:outputText value="Mot de passe de l'utilisateur" />
+					<br></br>
+					<h:inputSecret id="pwd" value="#{ManagersUsers.user.password}">
+						<f:validateLength minimum="2"></f:validateLength>
+					</h:inputSecret>
+					<br></br>
+					<h:commandButton value="S'inscrire"
+						action="#{ManagersUsers.add()}"></h:commandButton>
+					<br></br>
+					<h:messages id="messageReg" style="color:red" />
+				</h:panelGrid>
+			</h:form>
+		</div>
+	</div>
+</h:body>
+</html>
