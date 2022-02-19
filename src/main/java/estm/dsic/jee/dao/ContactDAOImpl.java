@@ -40,19 +40,15 @@ public class ContactDAOImpl implements ContactDAO {
 			// start a transaction
 			transaction = session.beginTransaction();
 			// get an contact object
-
 			if (value != null) {
 				System.out.println("OK" + value);
-				/*
-				 * query = session.createQuery(
-				 * "SELECT c FROM Contact c WHERE c.name like :name " +
-				 * "OR c.adresse like :adresse " + "OR c.email like :email " +
-				 * "OR c.tel like :tel " + "HAVING id_us = :id_us", Contact.class);
-				 */
-
-				query = session.createQuery("from Contact c where c.id_us=:udUs AND c.name like:nameContact");
-				query.setParameter("udUs", idUs);
-				query.setParameter("nameContact", value);
+				query = session.createQuery(
+						"select c from Contact c where c.name like :name or c.adresse like :adresse or c.email like :email or c.tel like :tel group by c.id_contact having c.id_us=:id_us");
+				query.setParameter("name", "%" + value + "%");
+				query.setParameter("adresse", "%" + value + "%");
+				query.setParameter("email", "%" + value + "%");
+				query.setParameter("tel", "%" + value + "%");
+				query.setParameter("id_us", idUs);
 
 			} else {
 				query = session.createQuery("from Contact c where c.id_us=:udUs");
@@ -64,7 +60,6 @@ public class ContactDAOImpl implements ContactDAO {
 			for (Contact contact : listOfContact) {
 				System.out.println("****" + contact);
 			}
-
 			// commit transaction
 			transaction.commit();
 		} catch (Exception e) {
