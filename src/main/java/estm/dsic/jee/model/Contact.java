@@ -1,17 +1,18 @@
 package estm.dsic.jee.model;
 
 import java.io.Serializable;
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.NamedQuery;
+import javax.persistence.Table;
 
-/**
- * The persistent class for the contacts database table.
- * 
- */
 @Entity
 @Table(name = "contacts")
 @NamedQuery(name = "Contact.findAll", query = "SELECT c FROM Contact c")
 public class Contact implements Serializable {
-
 	private static final long serialVersionUID = 1L;
 
 	@Id
@@ -30,6 +31,15 @@ public class Contact implements Serializable {
 	private int id_us;
 
 	public Contact() {
+	}
+
+	public Contact(int id_contact, String name, String adresse, String email, String tel, int id_us) {
+		this.id_contact = id_contact;
+		this.name = name;
+		this.adresse = adresse;
+		this.email = email;
+		this.tel = tel;
+		this.id_us = id_us;
 	}
 
 	public int getId_contact() {

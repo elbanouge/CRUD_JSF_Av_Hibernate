@@ -5,14 +5,12 @@ import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
 import javax.faces.context.FacesContext;
-
 import estm.dsic.jee.model.User;
 import estm.dsic.jee.services.UserServiceImpl;
 
 @ManagedBean(name = "ManagersUsers", eager = true)
 @RequestScoped
 public class ManagersUsers {
-
 	private User user;
 	private UserServiceImpl userServiceImpl;
 
@@ -27,14 +25,13 @@ public class ManagersUsers {
 		return user;
 	}
 
-	public void setUser(User User) {
-		this.user = User;
+	public void setUser(User user) {
+		this.user = user;
 	}
 
 	private Map<String, Object> sessionMap = FacesContext.getCurrentInstance().getExternalContext().getSessionMap();
 
 	public String login() {
-
 		User us = userServiceImpl.CheckUser(user);
 
 		if (us != null) {

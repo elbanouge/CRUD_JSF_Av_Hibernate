@@ -12,6 +12,7 @@ public class UserDAOImpl implements UserDAO {
 	public User CheckUser(User user) {
 		// TODO Auto-generated method stub
 		User us = this.getUserByName(user.getName());
+
 		if (us != null && user.getName().equals(us.getName()) && user.getPassword().equals(us.getPassword())) {
 			return us;
 		} else {

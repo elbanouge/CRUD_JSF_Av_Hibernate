@@ -1,7 +1,6 @@
 package estm.dsic.jee.dao;
 
 import java.util.List;
-
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.hibernate.query.Query;
@@ -41,9 +40,10 @@ public class ContactDAOImpl implements ContactDAO {
 			transaction = session.beginTransaction();
 			// get an contact object
 			if (value != null) {
-				System.out.println("OK" + value);
-				query = session.createQuery(
-						"select c from Contact c where c.name like :name or c.adresse like :adresse or c.email like :email or c.tel like :tel group by c.id_contact having c.id_us=:id_us");
+				System.out.println("****" + value);
+				query = session
+						.createQuery("select c from Contact c where c.name like :name or c.adresse like :adresse "
+								+ "or c.email like :email or c.tel like :tel group by c.id_contact having c.id_us=:id_us");
 				query.setParameter("name", "%" + value + "%");
 				query.setParameter("adresse", "%" + value + "%");
 				query.setParameter("email", "%" + value + "%");
@@ -75,12 +75,12 @@ public class ContactDAOImpl implements ContactDAO {
 	public Contact getContactById(Integer idContact) {
 		// TODO Auto-generated method stub
 		Transaction transaction = null;
-		Contact Contact = null;
+		Contact contact = null;
 		try (Session session = HibernateUtil.getSessionFactory().getCurrentSession()) {
 			// start a transaction
 			transaction = session.beginTransaction();
 			// get an contact object
-			Contact = session.get(Contact.class, idContact);
+			contact = session.get(Contact.class, idContact);
 			// commit transaction
 			transaction.commit();
 		} catch (Exception e) {
@@ -89,18 +89,18 @@ public class ContactDAOImpl implements ContactDAO {
 			}
 			e.printStackTrace();
 		}
-		return Contact;
+		return contact;
 	}
 
 	@Override
-	public void updateContact(Contact Contact) {
+	public void updateContact(Contact contact) {
 		// TODO Auto-generated method stub
 		Transaction transaction = null;
 		try (Session session = HibernateUtil.getSessionFactory().getCurrentSession()) {
 			// start a transaction
 			transaction = session.beginTransaction();
 			// save the contact object
-			session.update(Contact);
+			session.update(contact);
 			// commit transaction
 			transaction.commit();
 		} catch (Exception e) {
@@ -120,10 +120,10 @@ public class ContactDAOImpl implements ContactDAO {
 			transaction = session.beginTransaction();
 
 			// Delete a contact object
-			Contact Contact = session.get(Contact.class, id);
-			System.out.println(Contact);
-			if (Contact != null) {
-				session.delete(Contact);
+			Contact contact = session.get(Contact.class, id);
+			System.out.println(contact);
+			if (contact != null) {
+				session.delete(contact);
 				System.out.println("Contact is deleted");
 			}
 

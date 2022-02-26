@@ -7,7 +7,6 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
 import javax.faces.context.ExternalContext;
 import javax.faces.context.FacesContext;
-
 import estm.dsic.jee.model.Contact;
 import estm.dsic.jee.services.ContactServiceImpl;
 
@@ -24,7 +23,7 @@ public class ManagersContacts {
 	public ManagersContacts() {
 		super();
 		// TODO Auto-generated constructor stub
-		setContact(new Contact());
+		contact = new Contact();
 		ContactServiceImpl = new ContactServiceImpl();
 	}
 

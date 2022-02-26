@@ -1,7 +1,6 @@
 package estm.dsic.jee.dao;
 
 import java.util.List;
-
 import estm.dsic.jee.model.Contact;
 
 public interface ContactDAO {
@@ -10,9 +9,9 @@ public interface ContactDAO {
 
 	public Contact getContactById(Integer idContact);
 
-	public void saveContact(Contact Contact) throws Exception;
+	public void saveContact(Contact contact) throws Exception;
 
-	public void updateContact(Contact Contact);
+	public void updateContact(Contact contact);
 
 	public void deleteContact(Integer id);
 }

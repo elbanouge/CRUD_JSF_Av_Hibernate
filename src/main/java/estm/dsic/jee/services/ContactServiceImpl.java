@@ -1,7 +1,6 @@
 package estm.dsic.jee.services;
 
 import java.util.List;
-
 import estm.dsic.jee.dao.ContactDAO;
 import estm.dsic.jee.dao.ContactDAOImpl;
 import estm.dsic.jee.model.Contact;

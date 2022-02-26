@@ -8,7 +8,7 @@
 		content="width=device-width, initial-scale=1"
 		http-equiv="X-UA-Conpatible" />
 	<h:outputStylesheet library="css" name="bootstrap.min.css" />
-	<title>JSF Gestion des contacts</title>
+	<title>Gestion des contacts avec Hibernate et JSF</title>
 	<style type="text/css">
 .btnWidth {
 	width: 200px;
@@ -31,7 +31,7 @@
 			<div class="form-group">
 				<h:outputLabel for="username" class="control-label col-sm-6">Nom de contact :</h:outputLabel>
 				<div class="col-sm-6">
-					<h:inputText id="name-id" value="#{ManagersContacts.contact.name}"
+					<h:inputText id="username" value="#{ManagersContacts.contact.name}"
 						class="form-control" required="true">
 					</h:inputText>
 				</div>
@@ -39,7 +39,7 @@
 			<div class="form-group">
 				<h:outputLabel for="adresse" class="control-label col-sm-6">Adresse de contact :</h:outputLabel>
 				<div class="col-sm-6">
-					<h:inputTextarea cols="50" rows="5" id="adresse-id"
+					<h:inputTextarea cols="50" rows="5" id="adresse"
 						value="#{ManagersContacts.contact.adresse}" class="form-control"
 						required="true">
 					</h:inputTextarea>
@@ -48,7 +48,7 @@
 			<div class="form-group">
 				<h:outputLabel for="email" class="control-label col-sm-6">Email de contact :</h:outputLabel>
 				<div class="col-sm-6">
-					<h:inputText id="email-id"
+					<h:inputText id="email"
 						value="#{ManagersContacts.contact.email}" class="form-control"
 						required="true">
 					</h:inputText>
@@ -57,7 +57,7 @@
 			<div class="form-group">
 				<h:outputLabel for="tel" class="control-label col-sm-6">Tel de contact :</h:outputLabel>
 				<div class="col-sm-6">
-					<h:inputText id="tel-id" value="#{ManagersContacts.contact.tel}"
+					<h:inputText id="tel" value="#{ManagersContacts.contact.tel}"
 						class="form-control" required="true">
 					</h:inputText>
 				</div>
@@ -65,7 +65,7 @@
 			<div class="form-group">
 				<h:outputLabel for="user" class="control-label col-sm-6">Nom d'utilisateur :</h:outputLabel>
 				<div class="col-sm-6">
-					<h:inputText id="user-id" value="#{userInfo.name}"
+					<h:inputText id="user" value="#{userInfo.name}"
 						class="form-control" readonly="true">
 					</h:inputText>
 				</div>
